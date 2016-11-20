@@ -23,9 +23,21 @@ public class GeneralController {
 	 * @param request
 	 * @return un String con el nombre del JSP a mostrar
 	 */
-	@RequestMapping(value=ConstantesMappingURL.HOME_PAG)
+	@RequestMapping(value=ConstantesMappingURL.HOME_URL_MAPPING)
 	public String inicio(Model model, HttpServletRequest request){
 		String views=ConstantesMappingURL.HOME_PAG;
+		return views;
+	}
+	
+	@RequestMapping(value=ConstantesMappingURL.LISTAR_SERVICIOS_URL_MAPPING)
+	public String listarServicios(Model model, HttpServletRequest request){
+		String views=ConstantesMappingURL.LISTAR_SERVICIOS_PAG;
+		return views;
+	}
+	
+	@RequestMapping(value=ConstantesMappingURL.DETALLE_SERVICIO_URL_MAPPING)
+	public String detalleServicios(Model model, HttpServletRequest request){
+		String views=ConstantesMappingURL.DETALLE_SERVICIO_PAG;
 		return views;
 	}
 }

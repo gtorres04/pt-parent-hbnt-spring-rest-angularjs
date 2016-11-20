@@ -21,6 +21,6 @@
   </servlet-mapping>
   
   <welcome-file-list>
-  	<welcome-file>/WEB-INF/views/inicio.jsp</welcome-file>
+  	<welcome-file>/views/inicio.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
