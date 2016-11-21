@@ -14,12 +14,12 @@ public interface IServiciosHelper {
 	 * Consulta todo el listado de servicios.
 	 * @return
 	 */
-	public List<Servicio> getListaServicios() throws PtWsException;
+	public List<ServicioDto> getListaServicios() throws PtWsException;
 	
 	/**
 	 * Registra un nuevo Servicio o Actualiza un nuevo servicio
 	 * @param servicioDto
 	 * @throws PtWsException
 	 */
-	public void actualizarORegistrarServicio(ServicioDto servicioDto) throws PtWsException;
+	public void actualizarRegistrarYEliminarServicio(ServicioDto servicioDto) throws PtWsException;
 }

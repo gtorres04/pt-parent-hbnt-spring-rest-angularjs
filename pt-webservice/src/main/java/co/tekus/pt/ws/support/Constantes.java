@@ -27,6 +27,14 @@ public class Constantes {
 		
 	}
 	
+	/**
+	 * Metodos soportados por una solicitud http
+	 * @author gtorress
+	 *
+	 */
+	public static enum MetodosHttp{
+		DELETE, POST, PUT, GET;
+	}
 	public static final String MENSAJE_ERROR_GENERICO = "Lo sentimos, se ha presentado un error inesperado. Vuelva a intentarlo más tarde";
 	public static final String MENSAJE_EXITO_GENERICO = "La operacion se realizo con exito";
 	/**

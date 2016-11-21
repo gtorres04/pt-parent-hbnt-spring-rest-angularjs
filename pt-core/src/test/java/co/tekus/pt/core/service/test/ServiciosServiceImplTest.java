@@ -36,13 +36,12 @@ public class ServiciosServiceImplTest{
 	@Test
 	public void registrar() {
 		Servicio servicio = new Servicio();
-		servicio.setId(new Long(3));
-		servicio.setNombre("Servicio3");
-		servicio.setDescripcion("Desc3");
+		servicio.setId(new Long(344));
+		servicio.setNombre("Servicio344");
+		servicio.setDescripcion("Desc344");
 		try {
 			iServerciosService.create(servicio);
 		} catch (PtCoreException e) {
-			// TODO Auto-generated catch block
 			System.out.println("ERROR REGISTRAR ENTIDAD-->"+e.getMessage());
 			e.printStackTrace();
 			Assert.fail();

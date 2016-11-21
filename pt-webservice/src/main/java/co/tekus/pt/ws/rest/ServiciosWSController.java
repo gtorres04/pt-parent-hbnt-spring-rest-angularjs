@@ -22,6 +22,7 @@ import co.tekus.pt.ws.exception.PtWsException;
 import co.tekus.pt.ws.helper.IServiciosHelper;
 import co.tekus.pt.ws.support.Constantes;
 import co.tekus.pt.ws.support.Constantes.CodigosRespuestasRest;
+import co.tekus.pt.ws.support.Constantes.MetodosHttp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,7 +47,7 @@ public class ServiciosWSController {
 	public ResponseEntity<ListaServiciosDto> getListadoServicios(HttpServletRequest request) {
 		ResponseEntity<ListaServiciosDto> response;
 		ListaServiciosDto listaServiciosDto = new ListaServiciosDto();
-		List<Servicio> servicios = null;
+		List<ServicioDto> servicios = null;
 		String resultado = "";
 		try {
 			servicios = iServiciosHelper.getListaServicios();
@@ -54,6 +55,7 @@ public class ServiciosWSController {
 			listaServiciosDto.setEjecucion(true);
 			listaServiciosDto.setCodigo("1");
 			listaServiciosDto.setDescripcion(resultado);
+			listaServiciosDto.setServicios(servicios);
 		} catch (PtWsException e) {
 			listaServiciosDto.setEjecucion(false);
 			listaServiciosDto.setCodigo("-1");
@@ -62,14 +64,15 @@ public class ServiciosWSController {
 		response = new ResponseEntity<ListaServiciosDto>(listaServiciosDto, HttpStatus.OK);
 		return response;
 	}
-	
+
 	@RequestMapping(value = "/services", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public ResponseEntity<ServicioDto> actualizarServicios(HttpServletRequest request, @RequestBody ServicioDto servicio) {
+	public ResponseEntity<ServicioDto> actualizarServicios(HttpServletRequest request,
+			@RequestBody ServicioDto servicio) {
 		ResponseEntity<ServicioDto> response;
 		try {
-			iServiciosHelper.actualizarORegistrarServicio(servicio);
+			iServiciosHelper.actualizarRegistrarYEliminarServicio(servicio);
 			servicio.setEjecucion(true);
 			servicio.setCodigo(CodigosRespuestasRest.EXITO.getCodigo());
 			servicio.setDescripcion(Constantes.getInstance().MENSAJE_EXITO_GENERICO);

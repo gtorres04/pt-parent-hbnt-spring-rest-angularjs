@@ -4,10 +4,15 @@
 package co.tekus.pt.ws.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 
+/**
+ * @author gtorress
+ *
+ */
 /**
  * @author gtorress
  *
@@ -29,6 +34,16 @@ public class ServicioDto  extends ResponseWs implements Serializable{
 	 * 
 	 */
 	private String rutaImagen;
+	
+	/**
+	 * 
+	 */
+	private String metodoHttp;
+	
+	/**
+	 * 
+	 */
+	private List<CaracteristicaDto> caracteristicas;
 	/**
 	 * @return the id
 	 */
@@ -77,5 +92,28 @@ public class ServicioDto  extends ResponseWs implements Serializable{
 	public void setRutaImagen(String rutaImagen) {
 		this.rutaImagen = rutaImagen;
 	}
-	
+	/**
+	 * @return the metodoHttp
+	 */
+	public String getMetodoHttp() {
+		return metodoHttp;
+	}
+	/**
+	 * @param metodoHttp the metodoHttp to set
+	 */
+	public void setMetodoHttp(String metodoHttp) {
+		this.metodoHttp = metodoHttp;
+	}
+	/**
+	 * @return the caracteristicas
+	 */
+	public List<CaracteristicaDto> getCaracteristicas() {
+		return caracteristicas;
+	}
+	/**
+	 * @param caracteristicas the caracteristicas to set
+	 */
+	public void setCaracteristicas(List<CaracteristicaDto> caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
 }

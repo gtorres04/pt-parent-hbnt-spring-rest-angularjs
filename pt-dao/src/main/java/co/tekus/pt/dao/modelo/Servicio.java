@@ -1,14 +1,19 @@
 package co.tekus.pt.dao.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * @author gtorress
@@ -23,9 +28,8 @@ public class Servicio implements Serializable{
 	 */
 	@Id
 	@Column(name = "ID")
-	/*@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	*/
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SERVICIOS_SEQ")
+	@SequenceGenerator(name = "SERVICIOS_SEQ", sequenceName = "SERVICIOS_SEQ", allocationSize=1)
 	private Long id;
 	/**
 	 * 
@@ -42,7 +46,14 @@ public class Servicio implements Serializable{
 	 */
 	@Column(name = "IMAGEN")
 	private String rutaImagen;
-
+	
+	/**
+	 * 
+	 */
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="ID_SERVICIOS")
+	private List<Caracteristica> caracteristicas;
+	
 	/**
 	 * @return the id
 	 */
@@ -103,4 +114,19 @@ public class Servicio implements Serializable{
 		this.rutaImagen = rutaImagen;
 	}
 
+	/**
+	 * @return the caracteristicas
+	 */
+	public List<Caracteristica> getCaracteristicas() {
+		return caracteristicas;
+	}
+
+	/**
+	 * @param caracteristicas the caracteristicas to set
+	 */
+	public void setCaracteristicas(List<Caracteristica> caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
+	
+	
 }

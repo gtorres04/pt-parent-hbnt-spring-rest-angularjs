@@ -19,7 +19,9 @@
          <property name="suffix" value=".jsp"></property>        
        </bean>
        <mvc:resources mapping="/frameworks/**" location="/resources/js/frameworks/"  cache-period="31556926"/>
+       <mvc:resources mapping="/frameworks-css/**" location="/resources/css/frameworks/"  cache-period="31556926"/>
        <mvc:resources mapping="/modulo-ng-servicios/**" location="/resources/js/modulos/admon-servicios/"  cache-period="31556926"/>
+       <mvc:resources mapping="/modulo-css-servicios/**" location="/resources/css/modulos/admon-servicios/"  cache-period="31556926"/>
        
        <bean id="miDiskFileItemFactory" class="org.apache.commons.fileupload.disk.DiskFileItemFactory"/>
 	    <bean name="miServletFileUpload" class="org.apache.commons.fileupload.servlet.ServletFileUpload">

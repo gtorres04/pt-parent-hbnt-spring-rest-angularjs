@@ -1,7 +1,5 @@
 package co.tekus.pt.dao.test;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import co.tekus.pt.dao.AServiciosDao;
 import co.tekus.pt.dao.IDaoGeneric;
 import co.tekus.pt.dao.exception.PtDaoException;
 import co.tekus.pt.dao.impl.ServiciosDaoImpl;
+import co.tekus.pt.dao.modelo.Caracteristica;
 import co.tekus.pt.dao.modelo.Servicio;
 
 /**
@@ -22,41 +21,29 @@ import co.tekus.pt.dao.modelo.Servicio;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/applicationContextDao.xml" })
-public class ServiciosDaoImplTest {
-
+public class CaracteristicaDaoImplTest {
+	
 	@Autowired
-	@Qualifier("ServiciosDaoImpl")
-	IDaoGeneric<Servicio> aServiciosDao;
-
-	@Test
+	@Qualifier("CaracteristicasDaoImpl")
+	IDaoGeneric<Caracteristica> aCaracteristicasDao;
+   
+    
+    @Test
 	/**
 	 * prueba el registro de una entidad
 	 */
 	@Transactional
-	@Rollback(false)
+	//@Rollback(false)
 	public void registrar() {
-		Servicio pro = new Servicio();
-		pro.setNombre("asdfasdf");
-		pro.setDescripcion("asdfasdf");
+		Servicio pro=new Servicio();
+		pro.setId(new Long(478));
+		Caracteristica caracteristica = new Caracteristica();
+		caracteristica.setId(new Long(1));
+		caracteristica.setNombre("caracterisitica 1jv");
+		caracteristica.setValor("valorkkh");
+		caracteristica.setServicio(pro);
 		try {
-			aServiciosDao.create(pro);
-		} catch (PtDaoException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	/**
-	 * prueba el listado de una entidad
-	 */
-	@Transactional
-	// @Rollback(false)
-	public void listar() {
-		String s=null;
-		System.out.println(s);
-		try {
-			List<Servicio> servicios = aServiciosDao.findAll(Servicio.class);
-			System.out.println(servicios);
+			aCaracteristicasDao.create(caracteristica);
 		} catch (PtDaoException e) {
 			e.printStackTrace();
 		}

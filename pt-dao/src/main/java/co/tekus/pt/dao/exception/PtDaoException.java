@@ -116,7 +116,7 @@ public class PtDaoException extends Exception{
 	public static void relanzarExceptionDAOConstraintViolation(String causaException) throws PtDaoException{
 		String causaMensajeMysql=causaException;
 		PtDaoException daoException=null;
-		if(causaMensajeMysql.contains(CONSTRAINT.UNIQUE.toString())){
+		if(causaMensajeMysql.contains(CONSTRAINT.UNIQUE.toString().toLowerCase())){
 			String nombreColumna=causaMensajeMysql.substring(causaMensajeMysql.lastIndexOf(CONSTRAINT.UNIQUE.toString()), causaMensajeMysql.length()-1);
 			nombreColumna=nombreColumna.replace(CONSTRAINT.UNIQUE.getNombreGuion(), "").toLowerCase();
 			int posicionInicial=causaException.indexOf("'");

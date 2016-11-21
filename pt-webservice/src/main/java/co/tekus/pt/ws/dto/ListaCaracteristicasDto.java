@@ -12,7 +12,7 @@ import co.tekus.pt.dao.modelo.Servicio;
  * @author gtorress
  *
  */
-public class ListaServiciosDto extends ResponseWs implements Serializable{
+public class ListaCaracteristicasDto extends ResponseWs implements Serializable{
 	/**
 	 * 
 	 */
@@ -20,19 +20,19 @@ public class ListaServiciosDto extends ResponseWs implements Serializable{
 	/**
 	 * 
 	 */
-	private List<ServicioDto> servicios;
+	private List<Servicio> servicios;
 
 	/**
 	 * @return the servicios
 	 */
-	public List<ServicioDto> getServicios() {
+	public List<Servicio> getServicios() {
 		return servicios;
 	}
 
 	/**
 	 * @param servicios the servicios to set
 	 */
-	public void setServicios(List<ServicioDto> servicios) {
+	public void setServicios(List<Servicio> servicios) {
 		this.servicios = servicios;
 	}
 	

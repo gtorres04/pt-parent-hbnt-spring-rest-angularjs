@@ -29,12 +29,22 @@ public class GeneralController {
 		return views;
 	}
 	
+	/**
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value=ConstantesMappingURL.LISTAR_SERVICIOS_URL_MAPPING)
 	public String listarServicios(Model model, HttpServletRequest request){
 		String views=ConstantesMappingURL.LISTAR_SERVICIOS_PAG;
 		return views;
 	}
 	
+	/**
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value=ConstantesMappingURL.DETALLE_SERVICIO_URL_MAPPING)
 	public String detalleServicios(Model model, HttpServletRequest request){
 		String views=ConstantesMappingURL.DETALLE_SERVICIO_PAG;
